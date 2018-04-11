@@ -8,6 +8,14 @@ The user guide can be found at: https://fsl.fmrib.ox.ac.uk/fsl/fslwiki/PALM
 
 # Usage:
 
+The docker requires docker to be installed then all you need is to run:
+
+docker pull lsoussan/palm
+
+or 
+
+docker run lsoussan/palm <your_command_here>
+
 docker run -v $PWD/Data:/input -v $PWD/settings:/settings -v $PWD/output:/output lsoussan/palm -i /input/PA_vs_Group2_Fz_maps.nii -d /settings/PA_vs_Group2.mat -t /settings/PA_vs_Group2.con -o /output/test4_palm -n 1000
 
 # From the software author:
