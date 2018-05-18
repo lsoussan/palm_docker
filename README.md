@@ -5,6 +5,7 @@ Docker version of Anderson Winkler's Permutation Analysis of Linear Models
 PALM is an aggregate of matlab scripts for permutations and sign flipping for the analysis of neuroimaging data. This docker contains those files from the source github (https://github.com/andersonwinkler/PALM) as well as the necessary backend provided by Octave as a free substitute for Matlab.
 
 The user guide can be found at: https://fsl.fmrib.ox.ac.uk/fsl/fslwiki/PALM
+The image on docker hub can be found at: https://hub.docker.com/r/lsoussan/palm/
 
 # Usage:
 
@@ -12,15 +13,19 @@ The docker requires docker to be installed then all you need is to run:
 
 docker pull lsoussan/palm
 
-or 
+# Example:
 
-docker run lsoussan/palm <your_command_here>
+By default dockers need to be made aware of what happens outside. You can use -v to create a bridge between the machine environment and the internal machine environment as below:
 
-docker run -v $PWD/Data:/input -v $PWD/settings:/settings -v $PWD/output:/output lsoussan/palm -i /input/PA_vs_Group2_Fz_maps.nii -d /settings/PA_vs_Group2.mat -t /settings/PA_vs_Group2.con -o /output/test4_palm -n 1000
+docker run -v <externa_directory>:<internal_directory> lsoussan/palm <your_command_here>
 
-# From the software author:
+Here is an example 
 
-"On the link abovethere is no history about the package itself, so here it goes some. In one way or another, work on a permutation tool has been ongoing for a while, with some of the functions having been loosely written back in 2008, if not earlier. These functions began to be assembled and integrated by mid-2013. Between Oct/2013 and Mar/2014, Git was used locally for version control, but eventually PALM went on without it. Various early alpha versions circulated to collaborators, with the first public release in late Feb/2015 in the FSL website. These releases were, and continue to be, in the form of tarballs. Since all were kept, it was easy to retroactively apply the commits to the same local repository that had been neglected, and finally make it public on GitHub today, 04/Jul/2015. permutation tool has been ongoing for a while, with some of the functions having been loosely written back in 2008, if not earlier. These functions began to be assembled and integrated by mid-2013. Between Oct/2013 and Mar/2014, Git was used locally for version control, but eventually PALM went on without it. Various early alpha versions circulated to collaborators, with the first public release in late Feb/2015 in the FSL website. These releases were, and continue to be, in the form of tarballs. Since all were kept, it was easy to retroactively apply the commits to the same local repository that had been neglected, and finally make it public on GitHub today, 04/Jul/2015."
+docker run -v $PWD/:/input_folder lsoussan/palm -i /input_folder/Data/PA_vs_Corbetta_Fz_maps.nii -d /input_folder/PALM_2Sample_TTest/PA_vs_Corbetta.mat -t /input_folder/PALM_2Sample_TTest/PA_vs_Corbetta.con -o /input_folder/PALM_2Sample_TTest/PA_vs_Corbetta_palm -n 2000 -accel tail
+
+# A few words about Palm from the software author, Anderson Winkler:
+
+"On the link above there is no history about the package itself, so here it goes some. In one way or another, work on a permutation tool has been ongoing for a while, with some of the functions having been loosely written back in 2008, if not earlier. These functions began to be assembled and integrated by mid-2013. Between Oct/2013 and Mar/2014, Git was used locally for version control, but eventually PALM went on without it. Various early alpha versions circulated to collaborators, with the first public release in late Feb/2015 in the FSL website. These releases were, and continue to be, in the form of tarballs. Since all were kept, it was easy to retroactively apply the commits to the same local repository that had been neglected, and finally make it public on GitHub today, 04/Jul/2015. permutation tool has been ongoing for a while, with some of the functions having been loosely written back in 2008, if not earlier. These functions began to be assembled and integrated by mid-2013. Between Oct/2013 and Mar/2014, Git was used locally for version control, but eventually PALM went on without it. Various early alpha versions circulated to collaborators, with the first public release in late Feb/2015 in the FSL website. These releases were, and continue to be, in the form of tarballs. Since all were kept, it was easy to retroactively apply the commits to the same local repository that had been neglected, and finally make it public on GitHub today, 04/Jul/2015."
 
 # References:
 
