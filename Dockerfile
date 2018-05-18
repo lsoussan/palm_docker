@@ -2,7 +2,7 @@ FROM ubuntu
 
 MAINTAINER Louis Soussand <lsoussan@bidmc.harvard.edu>
 
-# Set up U
+# Set up environment:
 RUN apt-get update \
 && apt-get install -y git software-properties-common octave octave-pkg-dev octave-image\
 && apt-get remove -y software-properties-common \
